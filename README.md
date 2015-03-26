@@ -28,4 +28,6 @@ Translater
 3. Translator
 
     ```
-    Der Translator wandelt die Bilder in Text um, damit diese von Textanalyse Programme weiter verarbeitet werden können.
+    Der Translator wandelt die Bilder in Text um, damit diese von Textanalyse 
+    Programme weiter verarbeitet werden können.
+    ```
