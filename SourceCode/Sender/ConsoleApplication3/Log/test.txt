@@ -1,0 +1,8 @@
+image: "C:\Users\Roger\Documents\Visual Studio 2013\Projects\ConsoleApplication3\Log\deutschland.jpg"
+image: "C:\Users\Roger\Documents\Visual Studio 2013\Projects\ConsoleApplication3\Log\Informatik3.jpg"
+image: "C:\Users\Roger\Documents\Visual Studio 2013\Projects\ConsoleApplication3\Log\test.jpg"
+image: "C:\Users\Roger\Documents\Visual Studio 2013\Projects\ConsoleApplication3\Log\men_translation.png"
+image: "C:\Users\Roger\Documents\Visual Studio 2013\Projects\ConsoleApplication3\Log\IMG_20140723_113303.jpg"
+roger
+roger
+test
