@@ -1,0 +1,9 @@
+﻿@model WebAppBildanalyse.Models.Images
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach(var image in Model.Gallery)
+{
+    <img src="@Url.Content(image)" alt="Hejsan" height="400px" width="400px"/>
+}
