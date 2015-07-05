@@ -1,0 +1,2 @@
+set TER=C:\\Users\\Roger\\Documents\\GitHub\\Bildanalyse\\SourceCode\\Translator\\Bildtranslator\\Bildtranslator\\Tesseract-OCR\\tesseract.exe
+set TESSDATA_PREFIX=C:\\Users\\Roger\\Documents\\GitHub\\Bildanalyse\\SourceCode\\Translator\\Bildtranslator\\Bildtranslator\\Tesseract-OCR

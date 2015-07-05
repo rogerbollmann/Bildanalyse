@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="39831744-dab2-43b6-a14d-7a48a48b8ea8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8a7465ea-5e0f-475f-b3a5-11a84a4e4ad1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8080/bildanalyse/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="50858ad0-8dcc-475c-85ee-6daa8be6ac27" SourceId="1" SourceUrl="http://localhost:8080/bildanalyse/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="ab97c131-2488-49a1-8570-52ad11626171" SourceId="1" SourceUrl="http://localhost:8080/bildanalyse/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="d0fa07e3-0ca8-4a3d-bd3f-ee16977a34a6" SourceId="1" SourceUrl="http://localhost:8080/bildanalyse/mex" />
-    <MetadataFile FileName="WcfServiceLibrary1.xsd" MetadataType="Schema" ID="abbf6c3d-be98-4e1d-9ac3-d49dc92598bf" SourceId="1" SourceUrl="http://localhost:8080/bildanalyse/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2f36b104-06e1-4a40-af41-0dd532f9698d" SourceId="1" SourceUrl="http://localhost:8080/bildanalyse/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="1304d65b-02e8-40e9-af7f-7b53d12b12a9" SourceId="1" SourceUrl="http://localhost:8080/bildanalyse/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="54979451-e6d7-4153-bae9-d6d208cc27ec" SourceId="1" SourceUrl="http://localhost:8080/bildanalyse/mex" />
+    <MetadataFile FileName="WcfServiceLibrary1.xsd" MetadataType="Schema" ID="cf0ac2a7-3418-44d9-a235-1699b055fdf4" SourceId="1" SourceUrl="http://localhost:8080/bildanalyse/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -19,6 +20,10 @@ namespace WcfServiceLibrary1
 
         [OperationContract]
         double Add(double x, double y);
+
+        [OperationContract(Action = "UploadFile", IsOneWay = true)]
+        void UploadFile(byte[] img, string imageName, string imageInformation, long imageSize);
+        
 
         // TODO: Add your service operations here
     }
@@ -45,4 +50,5 @@ namespace WcfServiceLibrary1
             set { stringValue = value; }
         }
     }
+  
 }

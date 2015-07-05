@@ -1,0 +1,5 @@
+Server=Microsoft-IIS%2f8.0&Cache-Control=private&X-AspNet-Version=4.0.30319&Content-Type=application%2fjson
+application/json
+C:\Users\Roger\Documents\GitHub\Bildanalyse\SourceCode\Website\WebAppBildanalyse\WebAppBildanalyse\__browserLink\requestData\f97fb8a5ed50441aae71ad08daf545dc
+System.Security.Principal.WindowsIdentity
+C:\Users\Roger\Documents\GitHub\Bildanalyse\SourceCode\Website\WebAppBildanalyse\WebAppBildanalyse\
