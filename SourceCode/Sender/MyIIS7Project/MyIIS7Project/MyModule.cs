@@ -29,8 +29,8 @@ namespace MyIIS7Project
         public void Init(HttpApplication context)
         {
             //Register to the EndRequest event
-            context.EndRequest += new EventHandler(this.PictureAnalysis);
-            context.BeginRequest += new EventHandler(this.begin_RequestHandler);
+            //context.EndRequest += new EventHandler(this.PictureAnalysis);
+            //context.BeginRequest += new EventHandler(this.begin_RequestHandler);
 
         }
 

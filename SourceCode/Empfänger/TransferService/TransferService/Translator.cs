@@ -15,11 +15,13 @@ namespace TransferService
         string readOutput;
         string tesseract;
         string imageName;
+        string logFile;
         public Translator(string imageName)
         {
             this.readInput = ConfigurationSettings.AppSettings["input"];
             this.readOutput = ConfigurationSettings.AppSettings["output"];
             this.tesseract = ConfigurationSettings.AppSettings["tesseract"];
+            this.logFile = ConfigurationSettings.AppSettings["logfile"];
             //this.tesseract = @"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe";
             //this.readInput = @"C:\Users\Roger\Pictures\Input";
             //this.readOutput = @"C:\Users\Roger\Documents\GitHub\Bildanalyse\SourceCode\Translator\Output";
@@ -58,28 +60,43 @@ namespace TransferService
             //Console.WriteLine(command);
             //System.Diagnostics.Process.Start(command);
             
-            int ExitCode;
-            
+            //int ExitCode;
             Process pProcess = new Process();
-            pProcess.StartInfo.FileName = tesseract;
-            pProcess.StartInfo.Arguments = pathToImage + " " + pathToOutput + " -l " + language;
-            pProcess.StartInfo.UseShellExecute = false;
-            pProcess.StartInfo.CreateNoWindow = true;
-            pProcess.StartInfo.RedirectStandardError = true;
-            pProcess.StartInfo.RedirectStandardOutput = true;
 
-            pProcess.Start();
-            //pProcess.BeginErrorReadLine();
-            string stdError = pProcess.StandardError.ReadToEnd();
-            Console.WriteLine(stdError);
-            ExitCode = pProcess.ExitCode;
-            pProcess.WaitForExit();
-            
-            Console.WriteLine("ExitCode: " + ExitCode.ToString(), "ExecuteCommand");
-            pProcess.Close();
+            try
+            {
+                
+                pProcess.StartInfo.FileName = tesseract;
+                pProcess.StartInfo.Arguments = pathToImage + " " + pathToOutput + " -l " + language;
+                pProcess.StartInfo.UseShellExecute = false;
+                pProcess.StartInfo.CreateNoWindow = true;
+                DateTime startTime = DateTime.Now;
+                pProcess.Start();                
+                pProcess.WaitForExit();
+                DateTime endTime = DateTime.Now;
+                TimeSpan duration = endTime.Subtract(startTime);
+                pProcess.Close();
+                File.Delete(pathToImage);
+                using (StreamWriter writer = File.AppendText(logFile))
+                {
+                    writer.WriteLine("{0}|{1}|{2}|{3}", pathToImage, startTime.ToString(), endTime.ToString(), duration.Duration());
 
-            File.Delete(pathToImage);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                
+                Console.WriteLine(ex.Message);
+  
+            }
+            finally
+            {
+                pProcess.Close();
+            }
+
             return pathToOutput;
+
         }
     }
 }
