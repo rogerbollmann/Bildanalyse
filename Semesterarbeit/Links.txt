@@ -4,3 +4,17 @@ https://msdn.microsoft.com/en-us/library/ms145138%28v=vs.110%29.aspx
 
 
 https://msdn.microsoft.com/en-us/library/ms734712%28v=vs.110%29.aspx
+
+IEEE 830-1998
+http://www.google.ch/url?sa=t&rct=j&q=&esrc=s&frm=1&source=web&cd=2&ved=0CCMQFjABahUKEwixzPnMr-TGAhXl6HIKHQivAjY&url=http%3A%2F%2Fwww.math.uaa.alaska.edu%2F~afkjm%2Fcs401%2FIEEE830.pdf&ei=Ch2qVbGfEuXRywOI3oqwAw&usg=AFQjCNHznuy4ji6mL-rEUUUm4QFS-moI2Q
+
+
+
+Testfälle
+
+UC-001	Abfangen von Bilder
+
+
+UC-002	Verschicken von Bildern
+
+UC-003	Transferieren von Bild in Text.
