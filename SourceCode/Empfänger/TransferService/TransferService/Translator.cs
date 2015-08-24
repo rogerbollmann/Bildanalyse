@@ -9,13 +9,13 @@ using System.IO;
 
 namespace TransferService
 {
-    class Translator
+    public class Translator
     {
-        string readInput;
-        string readOutput;
-        string tesseract;
-        string imageName;
-        string logFile;
+        public string readInput;
+        public string readOutput;
+        public string tesseract;
+        public string imageName;
+        public string logFile;
         public Translator(string imageName)
         {
             this.readInput = ConfigurationSettings.AppSettings["input"];
@@ -36,7 +36,7 @@ namespace TransferService
 
 
             //string imageName = "IMG_20140723_113303.jpg";
-            string outputName = Path.GetFileNameWithoutExtension(imageName)+".txt";
+            string outputName = Path.GetFileNameWithoutExtension(imageName);// +".txt";
 
             string pathToImage = readInput + "\\" + imageName;
             string pathToOutput = readOutput + "\\" + outputName;

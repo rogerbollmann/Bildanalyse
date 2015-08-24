@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferImage", "TransferIm
 		{A523E577-8C2A-44A5-B43A-2DA2CE6BB872} = {A523E577-8C2A-44A5-B43A-2DA2CE6BB872}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestBildanalyse", "UnitTestBildanalyse\UnitTestBildanalyse.csproj", "{10D235FF-C278-4451-AF99-86EBAE81DB98}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A523E577-8C2A-44A5-B43A-2DA2CE6BB872} = {A523E577-8C2A-44A5-B43A-2DA2CE6BB872}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{AF94727B-B562-4D6F-B8F6-FBCD7FEDEB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF94727B-B562-4D6F-B8F6-FBCD7FEDEB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF94727B-B562-4D6F-B8F6-FBCD7FEDEB90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10D235FF-C278-4451-AF99-86EBAE81DB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10D235FF-C278-4451-AF99-86EBAE81DB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10D235FF-C278-4451-AF99-86EBAE81DB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10D235FF-C278-4451-AF99-86EBAE81DB98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

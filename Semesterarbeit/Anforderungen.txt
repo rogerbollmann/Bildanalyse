@@ -1,0 +1,27 @@
+FRQ-001	Bilder erkennen
+FRQ-002	Logeintrag
+FRQ-003	Logfile konfigurierbar
+FRQ-004	Logeintrag muss gelesen werden
+FRQ-005	Bild inkl. Bildinformationen verschicken
+FRQ-006	Endpunktadresse muss konfigurierbar sein
+FRQ-007	Bild inkl. Bildinformationen empfangen
+FRQ-008	Bild in Text umwandeln
+FRQ-009	Text abspeichern
+FRQ-010	Input und Output für Tranlator konfigurierbar
+FRQ-011	Bildinformationen im Output File.
+FRQ-012	Translator muss alle Ausführungen loggen
+
+
+NFRQ-001	Angemessenheit
+NFRQ-002	Interoperabilität
+NFRQ-003	Sicherheit
+NFRQ-004	Fehlertoleranz
+NFRQ-005	Wiederherstellbarkeit
+NFRQ-006	Verständlichkeit
+NFRQ-007	Bedienbarkeit
+NFRQ-008	Zeitverhalten
+NFRQ-009	Verbrauchsverhalten
+NFRQ-010	Analysierbarkeit
+NFRQ-011	Stabilität
+NFRQ-011	Installierbarkeit
+NFRQ-011	Austauschbarkeit

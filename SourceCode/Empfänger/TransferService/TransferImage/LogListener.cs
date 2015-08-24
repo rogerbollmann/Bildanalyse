@@ -7,20 +7,25 @@ using System.Threading.Tasks;
 
 namespace TransferImage
 {
-    class LogListener
+    public class LogListener
     {
-        string logPath;
-        string logDirectory;
-        string logFileName;
+        public string logPath;
+        public string logDirectory;
+        public string logFileName;
         public LogListener(string path){
 
             this.logPath = path;
             this.logDirectory = Path.GetDirectoryName(path);
             this.logFileName = Path.GetFileName(path);
 
-
-
         }
+
+        /**
+        public string LogPath{ get; private set;}
+        public string LogDirectory { get; private set; }
+        public string LogFileName { get; private set; }
+        **/
+
         public void LogReader()
         {
             // Create a new FileSystemWatcher and set its properties.
@@ -36,7 +41,7 @@ namespace TransferImage
             watcher.Changed += new FileSystemEventHandler(OnChanged);
             watcher.Created += new FileSystemEventHandler(OnChanged);
             watcher.Deleted += new FileSystemEventHandler(OnChanged);
-            watcher.Renamed += new RenamedEventHandler(OnRenamed);
+            //watcher.Renamed += new RenamedEventHandler(OnRenamed);
           
 
             // Add event handlers.
@@ -46,13 +51,13 @@ namespace TransferImage
             watcher.EnableRaisingEvents = true;
 
             // Wait for the user to quit the program.
-            Console.WriteLine("Press \'q\' to quit the sample.");
-            while (Console.Read() != 'q') ;
+            //Console.WriteLine("Press \'q\' to quit the sample.");
+            while (true) ;
         }
 
         
         // Define the event handlers. 
-        private static void OnChanged(object source, FileSystemEventArgs e)
+        public void OnChanged(object source, FileSystemEventArgs e)
         {
             // Specify what is done when a file is changed, created, or deleted.
             //Console.WriteLine("File: " + e.FullPath + " " + e.ChangeType);
@@ -62,16 +67,16 @@ namespace TransferImage
 
                 var lines = File.ReadLines(e.FullPath);
                 string line = lines.Last();
-                //Console.WriteLine(line);
-                //path|mime|code|user|app|servername
+
+                //datetime|path|mime|code|user|app|servername
                 string[] info = line.Split(new Char [] {'|'});
 
-                string path = info[0];
-                string mime = info[1];
-                string statusCode = info[2];
-                string user = info[3];
-                string app = info[4];
-                string serverName = info[5];
+                string path = info[1];
+                string mime = info[2];
+                string statusCode = info[3];
+                string user = info[4];
+                string app = info[5];
+                string serverName = info[6];
 
                 string imageInformation = "User: " + user + ", Server: " + serverName + ", StatusCode: " + statusCode + ", Mime-Type: "+mime;
 
@@ -85,11 +90,11 @@ namespace TransferImage
             }
             
         }
-
+        /**
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
             // Specify what is done when a file is renamed.
             Console.WriteLine("File: {0} renamed to {1}", e.OldFullPath, e.FullPath);
-        }
+        }**/
     }
 }

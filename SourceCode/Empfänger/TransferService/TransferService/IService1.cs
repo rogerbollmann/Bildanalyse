@@ -15,7 +15,6 @@ namespace TransferService
         [OperationContract]
         void UploadImage(string fileName, string fileInfo, byte[] data);
 
-        // TODO: Add your service operations here
     }
 
 

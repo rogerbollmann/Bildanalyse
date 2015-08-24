@@ -12,10 +12,11 @@ namespace TransferService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class Service1 : IService1
     {
+        public string uploadFolder;
 
         public void UploadImage(string fileName, string fileInfo, byte[] data)
         {
-            string uploadFolder = ConfigurationSettings.AppSettings["input"];
+            this.uploadFolder = ConfigurationSettings.AppSettings["input"];
             string filePath = Path.Combine(uploadFolder, fileName);
 
             BinaryWriter Writer = null;
