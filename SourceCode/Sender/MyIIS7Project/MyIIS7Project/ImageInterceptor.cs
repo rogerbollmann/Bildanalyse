@@ -9,21 +9,22 @@ using System.Configuration;
 
 namespace MyIIS7Project
 {
-    public class HelloWorldModule : IHttpModule
+    public class ImageInterceptor : IHttpModule
     {
-        public HelloWorldModule()
+        public ImageInterceptor()
         {
         }
 
         public String ModuleName
         {
-            get { return "HelloWorldModule"; }
+            get { return "ImageInterceptor"; }
         }
 
         // In the Init function, register for HttpApplication 
         // events by adding your handlers.
         public void Init(HttpApplication application)
         {
+            //register to a event
             application.BeginRequest +=
                 (new EventHandler(this.Application_BeginRequest));
             application.EndRequest +=
@@ -40,7 +41,7 @@ namespace MyIIS7Project
             string filePath = context.Request.FilePath;
             string mimetype = context.Request.ContentType;
 
-
+            //filter for images
             
             if (mimetype.Contains("image"))
             {
@@ -48,6 +49,7 @@ namespace MyIIS7Project
 
                 using (FileStream fs = File.Open(path, FileMode.OpenOrCreate | FileMode.Append, FileAccess.Write))
                 {
+                    //write all information into the logfile
                     using (StreamWriter sw = new StreamWriter(fs))
                     {
                         sw.WriteLine("{0:HH:mm:ss} - {1}|{2}", DateTime.Now, context.Request.PhysicalPath, mimetype);
@@ -58,6 +60,7 @@ namespace MyIIS7Project
 
         private void Application_EndRequest(Object source, EventArgs e)
         {
+            //read out of the HttpApplication object the needed information
             HttpApplication application = (HttpApplication)source;
             HttpContext context = application.Context;
             string contentType = context.Response.ContentType;
@@ -86,6 +89,7 @@ namespace MyIIS7Project
                 applicationName = "Default-Application";
             }
             
+            //try to read from config file of the webserver
             string logfile;
             try
             {
@@ -97,8 +101,10 @@ namespace MyIIS7Project
                 logfile = @"C:\inetpub\logs\LogFiles\test_nopath.txt";
             }
 
+            //filter content type for images
             if (contentType.Contains("image"))
             {
+                //write all information into the logfile
                 using (StreamWriter stream = File.AppendText(logfile))
                 {
 
@@ -112,7 +118,7 @@ namespace MyIIS7Project
             
             
         }
-
+        //release all needed resources
         public void Dispose() { }
     }
 }

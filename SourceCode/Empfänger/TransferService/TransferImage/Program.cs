@@ -38,7 +38,7 @@ namespace TransferImage
             }
             
 
-            
+            //start loglistener
             LogListener logListener = new LogListener(logFilePath);
             logListener.LogReader();
 
