@@ -9,6 +9,9 @@ using System.IO;
 
 namespace TransferService
 {
+    /*
+     *  Translator is responsible for translate image into text
+     **/
     public class Translator
     {
         public string readInput;
@@ -18,30 +21,24 @@ namespace TransferService
         public string logFile;
         public Translator(string imageName)
         {
+            //read loggin information and paths out of the config file
             this.readInput = ConfigurationSettings.AppSettings["input"];
             this.readOutput = ConfigurationSettings.AppSettings["output"];
             this.tesseract = ConfigurationSettings.AppSettings["tesseract"];
             this.logFile = ConfigurationSettings.AppSettings["logfile"];
-            //this.tesseract = @"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe";
-            //this.readInput = @"C:\Users\Roger\Pictures\Input";
-            //this.readOutput = @"C:\Users\Roger\Documents\GitHub\Bildanalyse\SourceCode\Translator\Output";
             this.imageName = imageName;
         }
 
 
         public string transLate()
         {
-            //string readInput = ConfigurationManager.AppSettings["input"];
-            //string readOuput = ConfigurationManager.AppSettings["output"];
-
-
-            //string imageName = "IMG_20140723_113303.jpg";
+            //Define parameters for executing tesseract
             string outputName = Path.GetFileNameWithoutExtension(imageName);// +".txt";
 
             string pathToImage = readInput + "\\" + imageName;
             string pathToOutput = readOutput + "\\" + outputName;
 
-            /*ara (Arabic), aze (Azerbauijani), bul (Bulgarian), cat (Catalan), ces (Czech), 
+            /*Supported languages: ara (Arabic), aze (Azerbauijani), bul (Bulgarian), cat (Catalan), ces (Czech), 
              * chi_sim (Simplified Chinese), chi_tra (Traditional Chinese), chr (Cherokee), 
              * dan (Danish), dan-frak (Danish (Fraktur)), deu (German), ell (Greek), eng (English), 
              * enm (Old English), epo (Esperanto), est (Estonian), fin (Finnish), fra (French), 
@@ -52,20 +49,19 @@ namespace TransferService
              * sqi (Albanian), spa (Spanish), srp (Serbian), swe (Swedish), tam (Tamil), 
              * tel (Telugu), tgl (Tagalog), tha (Thai), tur (Turkish), ukr (Ukrainian), vie (Vietnamese)*/
 
+            //define the language
             string language = "eng";
-            //string tesseract = ConfigurationManager.AppSettings["tesseract"];
-            //string tesseract = @"C:\Users\Roger\Documents\GitHub\Bildanalyse\SourceCode\Translator\Bildtranslator\Bildtranslator\Tesseract-OCR\tesseract.exe";
-
-            string command = tesseract+" " + pathToImage + " " + pathToOutput + " -l " + language;
-            //Console.WriteLine(command);
-            //System.Diagnostics.Process.Start(command);
             
-            //int ExitCode;
+            //pull the command together
+            //string command = tesseract+" " + pathToImage + " " + pathToOutput + " -l " + language;
+            
+            
+            //create a new process
             Process pProcess = new Process();
 
             try
             {
-                
+                //add filename, parameter and additional information the the Start info of the process
                 pProcess.StartInfo.FileName = tesseract;
                 pProcess.StartInfo.Arguments = pathToImage + " " + pathToOutput + " -l " + language;
                 pProcess.StartInfo.UseShellExecute = false;
@@ -76,6 +72,7 @@ namespace TransferService
                 DateTime endTime = DateTime.Now;
                 TimeSpan duration = endTime.Subtract(startTime);
                 pProcess.Close();
+                //write path, start time, end time and duration into the logfile
                 File.Delete(pathToImage);
                 using (StreamWriter writer = File.AppendText(logFile))
                 {
@@ -86,15 +83,21 @@ namespace TransferService
             }
             catch (Exception ex)
             {
-                
-                Console.WriteLine(ex.Message);
+                //in case of error, write error message into the logfile
+                using (StreamWriter writer = File.AppendText(logFile))
+                {
+                    writer.WriteLine(ex.Message);
+
+                }
   
             }
             finally
             {
+                //close the process
                 pProcess.Close();
             }
 
+            //return the path to the output file
             return pathToOutput;
 
         }

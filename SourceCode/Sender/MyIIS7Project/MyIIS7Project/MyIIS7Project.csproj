@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloWorldModule.cs" />
+    <Compile Include="ImageInterceptor.cs" />
     <Compile Include="MyHandler.cs" />
     <Compile Include="MyModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

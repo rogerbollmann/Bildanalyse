@@ -8,11 +8,14 @@ using System.Text;
 
 namespace TransferService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    //Define the ServiceContract
     [ServiceContract]
     public interface IService1
     {
+        //Define the Operation Contract
         [OperationContract]
+
+        //Define the public methode for the service
         void UploadImage(string fileName, string fileInfo, byte[] data);
 
     }

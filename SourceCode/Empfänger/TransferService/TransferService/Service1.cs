@@ -13,10 +13,12 @@ namespace TransferService
     public class Service1 : IService1
     {
         public string uploadFolder;
+        public string logfileService;
 
         public void UploadImage(string fileName, string fileInfo, byte[] data)
         {
             this.uploadFolder = ConfigurationSettings.AppSettings["input"];
+            this.logfileService = ConfigurationSettings.AppSettings["logfileService"];
             string filePath = Path.Combine(uploadFolder, fileName);
 
             BinaryWriter Writer = null;
@@ -36,6 +38,7 @@ namespace TransferService
                 Translator trans = new Translator(fileName);
                 string fileOutPath = trans.transLate() + ".txt";
 
+                //write image information into the output file of the Translator
                 using (StreamWriter writer = File.AppendText(fileOutPath))
                 {
                     writer.WriteLine(Environment.NewLine+fileInfo);
@@ -44,9 +47,12 @@ namespace TransferService
             }
             catch (Exception ex)
             {
-                //...
-                Console.WriteLine(ex.Message);
-                //return "Something went wrong: " + ex.Message;
+                //in case of errors, write the error message into the logfile
+                using (StreamWriter writer = File.AppendText(logfileService))
+                {
+                    writer.WriteLine(ex.Message);
+
+                }
             }
 
         }
