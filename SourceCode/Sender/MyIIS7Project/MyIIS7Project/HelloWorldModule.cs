@@ -9,15 +9,15 @@ using System.Configuration;
 
 namespace MyIIS7Project
 {
-    public class ImageInterceptor : IHttpModule
+    public class HelloWorldModule : IHttpModule
     {
-        public ImageInterceptor()
+        public HelloWorldModule()
         {
         }
 
         public String ModuleName
         {
-            get { return "ImageInterceptor"; }
+            get { return "HelloWorldModule"; }
         }
 
         // In the Init function, register for HttpApplication 
